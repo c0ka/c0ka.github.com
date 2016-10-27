@@ -1,0 +1,41 @@
+<!DOCTYPE html><html lang="zh-CN,en,default"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><meta name="google-site-verification" content="6GTeiOhqimfTtuUIQtS8CqdXJzM4lPPMeXjbvNAsm5w"><title>Mac OS Terminal 常用指令与小技巧 | 夏夜</title><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/4.2.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/grids-responsive-min.css"><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Mac OS Terminal 常用指令与小技巧</h1><a id="logo" href="/.">夏夜</a><p class="description"></p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">Mac OS Terminal 常用指令与小技巧</h1><div class="post-meta">Oct 26, 2016<script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><div class="post-content"><ol>
+<li>Mac OS Terminal 常⽤用指令與⼩小技巧</li>
+<li>終端機 • Linux 的介⾯面就是終端機，看到畫⾯面的地⽅方。 • Linux 系統同時會有很多終端機，⼀一般⼀一次只會 看到⼀一個。 • Mac OS 因爲有圖像化介⾯面，視窗的概念，因 此可以同時操作多個終端機。</li>
+<li>Option + ⽅方向鍵 可快速在⻑⾧長指令內，做遊標的移動</li>
+<li>pwd • 顯⽰示當前⺫⽬目錄</li>
+<li>! • 重複上⼀一個執⾏行過，開頭相同的指令 • ex. !redis &gt; redis-server</li>
+<li>ls -alh • 可列出當前⺫⽬目錄的檔案系統 • al: 全部檔案(含隱藏檔)與屬性 • h: ⼤大⼩小顯⽰示爲可讀的⼤大⼩小(B,K,M)</li>
+<li>ls -alh</li>
+<li>檔案權限 權限擁有者羣組</li>
+<li>chown • 可同時變更擁有者與羣組 • ex. chown user:group file</li>
+<li>檔案權限 格式爲 drwxrwxrwx • 綠：是否爲⺫⽬目錄 • 紅：擁有者(Owner)權限 • ⿈黃：羣組(Group)權限 • 紫：擁有者(Other)權限</li>
+<li>檔案權限 rwx • 讀取：是否可讀取 • 寫⼊入：是否可寫⼊入 • 執⾏行：是否可執⾏行</li>
+<li>檔案權限 22 rwx • 每⼀一個區塊的權限都是數字的總和 • 如果只可執⾏行權限就是 1 • 可讀執⾏行不可寫是 5 • 不具有權限是 0 20 21</li>
+<li>chmod • 可變更檔案或是資料夾的權限 • ex. chmod 777 mylog &lt; 最壞⽰示範 • ex. chmod -R 755 htdoc &lt; Web 常⽤用權限</li>
+<li>Recursive與檔案系統 • 資料夾與檔案都是物件，有各⾃自的權限 • chmod 與 chown 都只能變更⼀一個標的 • 遞迴可以讓指令對⺫⽬目標下的檔案與根⺫⽬目錄重複 執⾏行</li>
+<li>rm • 只能移除檔案 • 移除資料夾使⽤用 rmdir ，且只能移除空資料夾 • 透過遞迴可以移除所有檔案與資料夾 • ex. rm -Rf test/ &lt; ⾮非常危險</li>
+<li>touch • 修改檔案時間戳記 (存取時間與更改時間) • 有時候也被當做快速建⽴立檔案的⽅方式 • 建⽴立的檔案權限就是建⽴立者的權限</li>
+<li>tail • 可在終端機顯⽰示特定檔案最後⼗十⾏行內容 • 適合⽤用來觀看 log 檔案</li>
+<li>tail • 加上參數 -n 20 可顯⽰示 20 ⾏行，或是可以偷懶直 接帶⼊入數字</li>
+<li>tail • 加上參數 -f 可以讓終端機持續顯⽰示 log 的更新， 直到按下 Ctrl + C 中斷操作</li>
+<li>&amp; • 執⾏行檔案的指令後⾯面加上 &amp; 符號，可不鎖定終 端機 • 但是這個程式如果有 print 訊息，還是會在終端 機上⾯面被看到 • ex. redis-server&amp;</li>
+<li><blockquote>
+<p>• 執⾏行檔案的指令後⾯面加上 &gt; 符號，可將程式 print 的訊息導向 • ex. redis-server &gt; /dev/null</p>
+</blockquote>
+</li>
+<li>ps • Process Status，顯⽰示當前使⽤用者執⾏行的程序 • 加上 aux 參數，可顯⽰示所有系統的程序 • ex. ps aux</li>
+<li>grep • Globally Search a Regular Expression and Print，搜尋⼯工具 • 給 grep 關鍵字或正規表⽰示式，會列出結果 • ex. grep apple fruitlist.txt</li>
+<li>| • pipe ，會把左邊的執⾏行結果丟給右邊 • ex. ps aux | grep redis</li>
+<li>kill • 關閉系統程序，後⾯面通常加上 PID • 正常關閉 : 15 • 強制關閉 : 9 • ex. kill -9 5568</li>
+<li>Finder</li>
+<li>不能被關閉 • 可以關閉 Finder 所有視窗 • 但是 Finder 不能被關閉</li>
+<li>回到上⼀一層 • 在 Windows 內是倒退鍵 • 在 Mac 使⽤用 Cmd+ 上</li>
+<li>新增視窗與分⾴頁 • Cmd+N，開新視窗 • Cmd+T，開新分⾴頁</li>
+<li>精度 var numA = 0.1; var numB = 0.2; alert( (numA + numB) === 0.3 ); 會顯⽰示？</li>
+<li>精度 false</li>
+<li>精度 0.1+0.2 = ???? JavaScript 說 0.01 = 0.0001 1001 1001 1001 … 無限循環 0.02 = 0.0011 0011 0011 0011 … 無限循環 不過雙精度浮點數最⾼高是 52 位</li>
+<li>精度 所以相加後是 0.0100110011001100110011001100110011001 100110011001100 轉爲⼗十進位就是 0.30000000000000004</li>
+<li>精度 只要先將數字乘上10的 n 次⽅方，n 是你要的⼩小數 點精度，運算完在除以10的 n 次⽅方就可以解決這 個問題。 ex. 想要算出 0.1+0.2，可寫成 var accuracy = 1 <em> 10; alert((0.1</em>accuracy+0.2*accuracy)/accuracy);</li>
+<li>閉包 • myText 執⾏行完 closure_test 之後就應該要消失了 • 但是因爲 closure_test return 了⼀一個 function，且這 個 function 內部使⽤用到了 text 變數，形成了⼀一個閉 包。 • 這個閉包的特性，就像保護罩⼀一樣保護了 myText 。</li>
+</ol>
+</div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://c0ka.github.io/2016/10/26/Mac-OS-Terminal-常用指令与小技巧/" data-id="ciuqxxhx100005su5csq7sywf" class="article-share-link">分享到</a><div class="tags"><a href="/tags/系统/">系统</a></div><div class="post-nav"><a href="/2016/10/23/About-Maupassant/" class="next">About Maupassant</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">© <a href="/." rel="nofollow">夏夜.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=0.0.0"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
